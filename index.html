@@ -1,3 +1,6 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="STAMINA, agence photo et vidéo : sport, immobilier, architecture.">
 <meta name="claude:viewport-fit-sides" content="cover">
 <title>STAMINA</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -35,8 +38,8 @@ body {
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-left: max(clamp(16px, 4vw, 72px), env(safe-area-inset-left, 0px));
+  padding-right: max(clamp(16px, 4vw, 72px), env(safe-area-inset-right, 0px));
   overflow-x: hidden;
 }
 img, svg { max-width: 100%; }
@@ -308,6 +311,28 @@ footer a { color: var(--muted); }
 footer a:hover { color: var(--fg); }
 
 .ph::after { left: 8px; bottom: 8px; font-size: 10px; letter-spacing: 0.08em; }
+
+/* Mobile : en-tête compact, titres plus petits, grille de vignettes en 3 colonnes */
+@media (max-width: 719px) {
+  header { flex-wrap: nowrap; gap: 12px; padding-block: 14px; }
+  .logo { font-size: 18px; flex-shrink: 0; }
+  nav { min-width: 0; flex: 1 1 auto; justify-content: flex-end; flex-wrap: nowrap; gap: 14px; overflow-x: auto; scrollbar-width: none; }
+  nav::-webkit-scrollbar { display: none; }
+  nav a { font-size: 11px; white-space: nowrap; }
+  nav a .idx { display: none; }
+  .view { padding-block: 36px 48px; }
+  .eyebrow { margin-bottom: 12px; }
+  h1 { font-size: 44px; }
+  h2 { font-size: 36px; margin-bottom: 20px; }
+  .lead { font-size: 18px; margin-top: 20px; }
+  .cta { display: block; text-align: center; margin-top: 28px; }
+  .strip { margin-top: 36px; }
+  .strip .ph:nth-child(4) { display: none; }
+  .pillars { margin-top: 48px; grid-template-columns: 1fr; gap: 24px; }
+  .grid { gap: 22px 8px; }
+  .clients div { min-height: 110px; font-size: 15px; padding: 16px; }
+  .direct { margin-top: 40px; }
+}
 @media (min-width: 720px) {
   .ph::after { left: 12px; bottom: 10px; font-size: 11px; letter-spacing: 0.12em; }
 }
